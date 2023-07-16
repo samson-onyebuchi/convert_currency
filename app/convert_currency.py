@@ -59,5 +59,4 @@ def convert_currency():
     except Exception as e:
         return jsonify({'error': 'An unexpected error occurred.'}), 500
 
-if __name__ == '__main__':
-    app.run()
+
