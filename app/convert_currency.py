@@ -9,11 +9,9 @@ url = os.getenv('EXCHANGE_RATES_URL')
 @app.route('/convert_currency', methods=['POST'])
 def convert_currency():
     try:
-        base_currency = request.json.get('base_currency')
-        target_currency = request.json.get('target_currency')
-        amount = request.json.get('amount')
-
-        
+        base_currency = request.args.get('base_currency')
+        target_currency = request.args.get('target_currency')
+        amount = float(request.args.get('amount'))  # Convert amount to float
 
         if not url:
             raise ValueError("EXCHANGE_RATES_URL environment variable is not set.")
